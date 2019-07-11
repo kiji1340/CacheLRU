@@ -66,7 +66,6 @@ class CacheLRUTest {
         CacheLRU.put("data", data).execute()
         CacheLRU.get("data", Data::class.java).async(object : Callback<Data?> {
             override fun onResult(result: Data?) {
-                Log.e("DBao", "$result")
                 assertThat(result?.name).isEqualTo(data.name)
                 assertThat(result?.content).isEqualTo(data.content)
                 signal.countDown()
