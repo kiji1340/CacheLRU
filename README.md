@@ -1,4 +1,4 @@
-# CaheLRU
+# CacheLRU
 
 CacheLRU is an Android library for caching the serializable object, base on LRU cache.
 
