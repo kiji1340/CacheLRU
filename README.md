@@ -32,6 +32,14 @@ save data to disk
 ```kotlin
 CacheLRU.put("key data", data).execute()
 ```
+save data to disk with async
+```kotlin
+CacheLRU.put("key data", data).async(object : Callback<Boolean> {
+            override fun onResult(result: Boolean) {
+                //handle data
+            }
+        })
+```
 save data to disk with expire time
 ```java
 CacheLRU.put("key data", data)
@@ -44,8 +52,8 @@ val dataCache = CacheLRU.get("key data",Data::class.java).execute()
 ```
 get data with async
 ```kotlin
-CacheLRU.put("data", data).async(object : Callback<Boolean> {
-            override fun onResult(result: Boolean) {
+CacheLRU.get("key data", Data::class.java).async(object : Callback<Data?> {
+            override fun onResult(result: Data?) {
                 //handle data
             }
         })
